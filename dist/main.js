@@ -1,1 +1,1 @@
-// Simulação de bundle gerado pelo Vite
+document.getElementById('root').innerHTML += '<p style="text-align:center;">Build simulado concluído.</p>';

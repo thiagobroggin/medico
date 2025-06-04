@@ -1,16 +1,49 @@
+import React from 'react';
+    import { Button } from '@/components/ui/button';
+    import { motion } from 'framer-motion';
+    import { Menu } from 'lucide-react';
 
-import React from "react";
-import logo from "/public/Logo_Dutra_Rodrigues_Simbolo.png";
+    const Header = () => {
+      const whatsappLink = "https://wa.me/5511968942030";
 
-const Header = () => {
-  return (
-    <header className="w-full bg-white shadow-md p-4 flex items-center justify-between fixed top-0 left-0 z-50">
-      <div className="flex items-center space-x-4">
-        <img src={logo} alt="Logo Dutra Rodrigues" className="h-10 w-auto" />
-        <h1 className="text-xl font-semibold text-gray-800">Dr. Thiago Broggin Dutra Rodrigues</h1>
-      </div>
-    </header>
-  );
-};
+      return (
+        <motion.header
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="fixed top-0 left-0 right-0 bg-base shadow-md z-50 py-3 px-6 md:px-12"
+        >
+          <div className="container mx-auto flex justify-between items-center">
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="flex items-center gap-3" // Aplicando gap-3
+            >
+              <img src="/logo.svg" alt="Logo Dr. Thiago" className="h-10 w-10" /> {/* Ajustado tamanho do logo */}
+              <span className="text-lg font-semibold tracking-tight text-text whitespace-nowrap"> {/* Aplicando classes de texto e cor */}
+                Dr. Thiago Broggin Dutra Rodrigues
+              </span>
+            </motion.div>
+            <nav className="hidden md:flex space-x-6 items-center">
+              <a href="#services" className="text-sm lg:text-base hover:text-accent transition-colors duration-300 text-text">Especialidades</a>
+              <a href="#timeline" className="text-sm lg:text-base hover:text-accent transition-colors duration-300 text-text">Formação</a>
+              <a href="#testimonial" className="text-sm lg:text-base hover:text-accent transition-colors duration-300 text-text">Depoimentos</a>
+              <a href="#contact" className="text-sm lg:text-base hover:text-accent transition-colors duration-300 text-text">Contato</a>
+              <Button 
+                onClick={() => window.open(whatsappLink, '_blank')}
+                className="bg-primary text-base hover:bg-accent hover:text-text transition-colors duration-300 text-sm lg:text-base"
+                size="lg"
+              >
+                Agendar Consulta
+              </Button>
+            </nav>
+            <div className="md:hidden">
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6 text-primary" />
+              </Button>
+            </div>
+          </div>
+        </motion.header>
+      );
+    };
 
-export default Header;
+    export default Header;
