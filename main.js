@@ -1,0 +1,1 @@
+// Simulação de bundle gerado pelo Vite
